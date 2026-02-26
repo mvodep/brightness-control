@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="DisplayBrightness.Views.NightModeWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource SolidBackgroundFillColorBaseBrush}">
+        <Border Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                BorderThickness="0"
+                Padding="20">
+            <StackPanel Spacing="16">
+                <TextBlock Text="Night Mode Features" FontWeight="SemiBold" FontSize="14" />
+                
+                <ToggleSwitch x:Name="NightModeToggle" Header="Test Night Mode" Toggled="NightModeToggle_Toggled" />
+                
+                <TextBlock Text="Adjust standard night mode colors:" FontWeight="SemiBold" Margin="0,8,0,0" />
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Red" />
+                    <Slider x:Name="RedSlider" Minimum="0.5" Maximum="1" StepFrequency="0.01" PointerCaptureLost="Slider_PointerCaptureLost" />
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Green" />
+                    <Slider x:Name="GreenSlider" Minimum="0.5" Maximum="1" StepFrequency="0.01" PointerCaptureLost="Slider_PointerCaptureLost" />
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Blue" />
+                    <Slider x:Name="BlueSlider" Minimum="0.5" Maximum="1" StepFrequency="0.01" PointerCaptureLost="Slider_PointerCaptureLost" />
+                </StackPanel>
+
+                <Button Content="Reset Defaults" Click="ResetButton_Click" HorizontalAlignment="Right" Margin="0,16,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

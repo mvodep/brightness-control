@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Page
+    x:Class="DisplayBrightness.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:DisplayBrightness"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+    
+
+
+    <Grid Background="{ThemeResource SolidBackgroundFillColorBaseBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <ListView ItemsSource="{x:Bind Displays}" SelectionMode="None" Padding="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:DisplayInfo">
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                            BorderThickness="0,0,0,1"
+                            Padding="20,12">
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="{x:Bind FriendlyName}" FontWeight="SemiBold" FontSize="14"/>
+                            <TextBlock Text="DDC/CI not available" 
+                                       FontStyle="Italic" 
+                                       FontSize="12" 
+                                       Foreground="{ThemeResource SystemControlErrorTextForegroundBrush}"
+                                       Visibility="{x:Bind DdcCiErrorVisibility}"
+                                       Margin="0,-4,0,0"/>
+                            <Grid ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Slider Grid.Column="0" 
+                                        Value="{x:Bind Brightness, Mode=TwoWay}" 
+                                        Minimum="{x:Bind MinBrightness}" 
+                                        Maximum="{x:Bind MaxBrightness}"
+                                        Visibility="{x:Bind IsBrightnessSupported}"
+                                        PointerCaptureLost="Slider_PointerCaptureLost"
+                                        Tag="{x:Bind Mode=OneWay}"/>
+                                <ToggleButton Grid.Column="1" 
+                                              IsChecked="{x:Bind IsNightLightEnabled, Mode=TwoWay}"
+                                              Padding="6"
+                                              CornerRadius="4">
+                                     <Viewbox Width="16" Height="16">
+                                         <Path Data="M29.2,26.72A12.07,12.07,0,0,1,22.9,4.44,13.68,13.68,0,0,0,19.49,4a14,14,0,0,0,0,28,13.82,13.82,0,0,0,10.9-5.34A11.71,11.71,0,0,1,29.2,26.72Z" 
+                                               Fill="{ThemeResource TextFillColorPrimaryBrush}" 
+                                               Stretch="Uniform"/>
+                                     </Viewbox>
+                                </ToggleButton>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Border Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0,1,0,0" Padding="20">
+            <StackPanel>
+                <TextBlock Text="Global Brightness (%)" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,0,0,8"/>
+                <Grid ColumnSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider Grid.Column="0" 
+                            Minimum="0" Maximum="100" Value="50" 
+                            PointerCaptureLost="GlobalSlider_PointerCaptureLost"/>
+                    <ToggleButton Grid.Column="1"
+                                  Click="GlobalNightLight_Click"
+                                  Padding="6"
+                                  CornerRadius="4">
+                        <Viewbox Width="16" Height="16">
+                             <Path Data="M29.2,26.72A12.07,12.07,0,0,1,22.9,4.44,13.68,13.68,0,0,0,19.49,4a14,14,0,0,0,0,28,13.82,13.82,0,0,0,10.9-5.34A11.71,11.71,0,0,1,29.2,26.72Z" 
+                                   Fill="{ThemeResource TextFillColorPrimaryBrush}" 
+                                   Stretch="Uniform"/>
+                        </Viewbox>
+                    </ToggleButton>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

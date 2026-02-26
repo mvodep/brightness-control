@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DisplayBrightness (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DisplayBrightness (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
