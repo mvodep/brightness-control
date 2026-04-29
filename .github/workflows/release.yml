@@ -37,11 +37,20 @@ jobs:
     - name: Publish Executable
       run: dotnet publish -c Release -p:Version=${{ steps.extract_version.outputs.VERSION }} -p:FileVersion=${{ steps.extract_version.outputs.VERSION }} -p:AssemblyVersion=${{ steps.extract_version.outputs.VERSION }}
 
+    - name: Package Release (ZIP)
+      shell: pwsh
+      run: |
+        $publishDir = "bin\Release\net10.0-windows10.0.19041.0\win-x64\publish"
+        $zipFile = "DisplayBrightness_v${{ steps.extract_version.outputs.VERSION }}.zip"
+        Compress-Archive -Path "$publishDir\*" -DestinationPath $zipFile
+        echo "ZIP_PATH=$zipFile" >> $env:GITHUB_OUTPUT
+      id: package
+
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          bin/Release/net10.0-windows10.0.19041.0/win-x64/publish/*
+          ${{ steps.package.outputs.ZIP_PATH }}
         name: Release ${{ github.ref_name }}
         draft: false
         prerelease: false
