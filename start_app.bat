@@ -3,7 +3,7 @@ echo Killing existing instances...
 taskkill /F /IM DisplayBrightness.exe >nul 2>&1
 
 echo Building and publishing the standalone executable...
-dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true
+dotnet publish -c Release
 if %errorlevel% neq 0 (
     echo Build failed!
     pause

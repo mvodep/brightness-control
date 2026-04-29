@@ -40,8 +40,11 @@ To build this project from source, you will need the following tools:
 
 Alternatively, via the .NET CLI:
 ```bat
-dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+dotnet publish -c Release
 ```
+
+> [!NOTE]
+> This application is optimized for Windows 11 **Smart App Control**. To avoid crashes caused by the operating system blocking temporary file extraction, the build process produces a single executable alongside its native dependencies in the `publish` folder. Ensure you keep all files in that folder together.
 
 ## Automations
 
