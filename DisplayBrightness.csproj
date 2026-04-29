@@ -16,7 +16,7 @@
         
         <!-- Single File options are disabled to avoid Smart App Control blocks and build errors -->
         <PublishSingleFile>false</PublishSingleFile>
-        <SelfContained>false</SelfContained>
+        <SelfContained>true</SelfContained>
         <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <PublishReadyToRun>false</PublishReadyToRun>
 

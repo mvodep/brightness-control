@@ -17,7 +17,7 @@ This tool gives you quick access to control hardware brightness for DDC/CI compa
 
 Go to the [Releases](https://github.com/mvodep/brightness-control/releases) page and download the latest release.
 
-The application is built using .NET 10.0 and requires no additional installation steps. Just extract the folder anywhere and run `DisplayBrightness.exe`!
+The application is self-contained (includes the .NET runtime) and requires no additional installation steps. Just extract the folder anywhere and run `DisplayBrightness.exe`!
 
 ## Usage
 
