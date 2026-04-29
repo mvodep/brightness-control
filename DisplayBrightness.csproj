@@ -14,13 +14,11 @@
         <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
         <ApplicationIcon>icon.ico</ApplicationIcon>
         
-        <!-- Single File Publish Options (Optimized for Smart App Control) -->
-        <PublishSingleFile>true</PublishSingleFile>
+        <!-- Single File options are disabled to avoid Smart App Control blocks and build errors -->
+        <PublishSingleFile>false</PublishSingleFile>
         <SelfContained>false</SelfContained>
         <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <PublishReadyToRun>false</PublishReadyToRun>
-        <IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
-        <IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
 
         <!-- Project Options -->
         <Nullable>enable</Nullable>

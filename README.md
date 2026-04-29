@@ -11,13 +11,13 @@ This tool gives you quick access to control hardware brightness for DDC/CI compa
 - **Hardware Brightness Control (DDC/CI & WMI/WMMI)**: Directly change the monitor's native brightness using DDC/CI for external displays and WMI (WMMI) for internal laptop displays.
 - **Night Mode**: Easily tint your screen colors to reduce eye strain at night. Fully customizable RGB levels. 
 - **Modern UI**: Uses WinUI 3, Desktop Acrylic backdrops, and Windows 11 rounded corners for a premium native look and feel.
-- **Single Executable**: Ships as a lightweight, single portable executable (`.exe`).
+- **Portable Deployment**: Ships as a lightweight, portable folder. No installation required.
 
 ## Installation
 
-Go to the [Releases](https://github.com/mvodep/brightness-control/releases) page and download `DisplayBrightness.exe`.
+Go to the [Releases](https://github.com/mvodep/brightness-control/releases) page and download the latest release.
 
-The executable is built using .NET 10.0 and requires no additional installation steps. Just place it anywhere and run it!
+The application is built using .NET 10.0 and requires no additional installation steps. Just extract the folder anywhere and run `DisplayBrightness.exe`!
 
 ## Usage
 
